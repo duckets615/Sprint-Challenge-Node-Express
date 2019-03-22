@@ -79,7 +79,7 @@ server.post('/api/projects/:projectId/actions', (req, res) => {
     if ( !completed ) {
         completed = false;
     }
-    projecstDB.get(projectId).then( project => {
+    projectsDB.get(projectId).then( project => {
         if ( !project ) {
             return res.status(404).send({ error: `project id required `})
         }
@@ -93,7 +93,7 @@ server.post('/api/projects/:projectId/actions', (req, res) => {
 
 server.get('/api/projects/:projectId/actions', (req, res) => {
     const projectId = req.params.projectId;
-    projecstDB.getProjectActions(projectId)
+    projectsDB.getProjectActions(projectId)
     .then( actions => {
         if ( !actions ) {
             return res.status(404).json({ error: `No actions found` })
