@@ -79,7 +79,7 @@ server.post('/api/projects/:projectId/actions', (req, res) => {
     if ( !completed ) {
         completed = false;
     }
-    projectDb.get(projectId).then( project => {
+    projecstDB.get(projectId).then( project => {
         if ( !project ) {
             return res.status(404).send({ error: `project id required `})
         }
@@ -93,7 +93,7 @@ server.post('/api/projects/:projectId/actions', (req, res) => {
 
 server.get('/api/projects/:projectId/actions', (req, res) => {
     const projectId = req.params.projectId;
-    projectDb.getProjectActions(projectId)
+    projecstDB.getProjectActions(projectId)
     .then( actions => {
         if ( !actions ) {
             return res.status(404).json({ error: `No actions found` })
@@ -147,4 +147,3 @@ server.delete('/api/actions/:actionId',  (req, res) => {
 
 const port = 4000;
 server.listen(port, () => console.log(`server rolling on port ${port}`));
-//
