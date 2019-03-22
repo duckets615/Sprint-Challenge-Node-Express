@@ -1,3 +1,70 @@
+## Project Setup
+
+- [ ] Create a forked copy of this project.
+- [ ] Add your _Project Manager_ as collaborator on Github.
+- [ ] Clone your forked version of the Repository.
+- [ ] Create a new Branch on the clone: git checkout -b `<firstName-lastName>`.
+- [ ] Implement the project on this Branch, committing changes regularly.
+- [ ] Push commits: git push origin `<firstName-lastName>`.
+
+Follow these steps for completing your project.
+
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master on your fork. **Please don't merge your own pull request.**
+- [ ] Add your _Project Manager_ as a Reviewer on the Pull-request
+- [ ] Your _Project Manager_ will count the challenge as done by merging the branch into _master_.
+
+## Minimum Viable Product
+
+- [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
+- [ ] Configure an _npm script_ named _"start"_ that will execute your code using _node_.
+
+Design and build the necessary endpoints to:
+
+- [ ] Perform CRUD operations on _projects_ and _actions_.
+- [ ] Retrieve the list of actions for a project.
+
+### Database Schemas
+
+The _schemas_ (properties and data type of each property) used to store and retrieve the resources inside the included database (`lambda.sqlite3`) is described below.
+
+#### Projects
+
+ Field        Data Type  Metadata                                                                    
+ -----------  ---------  ---------------------------------------------------------------------------
+ id           number     no need to provide it when creating projects, the database will generate it
+ name         string     required.                                                                   
+ description  string     required.                                                                   
+ completed    boolean    used to indicate if the project has been completed, not required            
+
+#### Actions
+ Field        Data Type                                                                                     
+ -----------  ---------  --------------------------------------------------------------------------------------
+ id           number     no need to provide when creating posts. the DB will automatically generate it.    
+ project_id   number     required, must be the id of an existing project.                                                 
+ description  string     up to 128 characters long, required.                                                             
+ notes        string     no size limit, required. Used to record additional notes or requirements to complete the action.
+ completed    boolean    used to indicate if the action has been completed, not required                                  |
+
+We have provided test data for all the resources.
+
+Now that we have a way to add, update, remove and retrieve data from the provided database, it's time to work on the API.
+
+## Stretch Goal
+
+- Use `create-react-app` to create an application in a separate folder (outside the API project folder). Name it anything you want.
+- From the React application show a list of all _projects_ using the API you built.
+- Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.
+- Add styling! Perhaps with [`styled-components`](https://www.styled-components.com/).
+
+
+
+
+
+
+
+
+
+
 # Sprint Challenge: Express and Node.js - Projects & Actions
 
 This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored Building RESTful Web APIs with Express and Node.js, Server-side Routing, Express Middleware & Deployment and Good Practices. In your challenge for this Sprint, you will demonstrate proficiency by creating an Web API using Node.js and Express.
